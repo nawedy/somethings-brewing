@@ -7,13 +7,15 @@ import adapter from '@sveltejs/adapter-vercel';
 const config = {
 	preprocess: preprocess(),
 
-	kit: {
-		adapter: adapter(),
+    kit: {
+        adapter: adapter({
+            runtime: 'nodejs20.x'
+        }),
 		alias: {
 			$components: 'src/app/components',
 			$lib: 'src/lib',
-			$styles: 'src/app/styles',
-			$assets: 'src/assets',
+			$styles: 'src/app/assets/styles',
+			$assets: 'src/app/assets',
 			$images: 'static/images',
 			$videos: 'static/videos'
 		}

@@ -75,7 +75,8 @@ jobs:
           STRIPE_WEBHOOK_SECRET: ${{ secrets.STRIPE_WEBHOOK_SECRET }}
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
       - name: Output deployment URL
-        run: echo "Deployed URL: ${{ steps.vercel.outputs.preview-url }}"
+        run: |
+          echo "Deployed URL: ${{ steps.vercel.outputs.preview-url }}"
 
       - name: E2E on deployment (optional)
         if: ${{ steps.vercel.outputs.preview-url != '' }}
