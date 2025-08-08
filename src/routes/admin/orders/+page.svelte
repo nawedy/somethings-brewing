@@ -242,7 +242,7 @@
 						<!-- Quick Actions -->
 						<div class="absolute top-4 right-4">
 							<div class="dropdown dropdown-end">
-								<div tabindex="0" role="button" class="btn btn-circle btn-ghost btn-sm">
+                                <button type="button" class="btn btn-circle btn-ghost btn-sm" aria-haspopup="menu" aria-expanded="false">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										class="h-4 w-4"
@@ -257,11 +257,8 @@
 											d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
 										/>
 									</svg>
-								</div>
-								<ul
-									tabindex="0"
-									class="menu dropdown-content rounded-box bg-base-100 z-[1] w-52 p-2 shadow"
-								>
+                                </button>
+                                <ul class="menu dropdown-content rounded-box bg-base-100 z-[1] w-52 p-2 shadow" role="menu">
 									{#if order.status === 'paid'}
 										<li>
 											<button on:click={() => updateOrderStatus(order.id, 'processing')}>

@@ -52,11 +52,12 @@
 		{/if}
 
 		<form on:submit|preventDefault={handleSubmit} class="space-y-4">
-			<div>
-				<label class="label">
+            <div>
+                <label class="label" for="contact-name">
 					<span class="label-text">Name</span>
 				</label>
 				<input
+                    id="contact-name"
 					class="input input-bordered w-full"
 					type="text"
 					bind:value={name}
@@ -64,11 +65,12 @@
 				/>
 			</div>
 
-			<div>
-				<label class="label">
+            <div>
+                <label class="label" for="contact-email">
 					<span class="label-text">Email</span>
 				</label>
 				<input
+                    id="contact-email"
 					class="input input-bordered w-full"
 					type="email"
 					bind:value={email}
@@ -76,11 +78,12 @@
 				/>
 			</div>
 
-			<div>
-				<label class="label">
+            <div>
+                <label class="label" for="contact-message">
 					<span class="label-text">Message</span>
 				</label>
 				<textarea
+                    id="contact-message"
 					class="textarea textarea-bordered w-full"
 					rows="5"
 					bind:value={message}

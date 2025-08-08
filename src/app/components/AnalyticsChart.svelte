@@ -12,9 +12,7 @@
 	let chart;
 	let canvas;
 
-  let last = '';
-  $: serialized = JSON.stringify({ type, data, options });
-  $: shouldRebuild = serialized !== last;
+  let previousSerializedSignature = '';
 
 	onMount(() => {
 		if (canvas) {
@@ -30,10 +28,13 @@
 		};
 	});
 
-  $: if (chart && shouldRebuild) {
-    last = serialized;
-    chart.destroy();
-    chart = new Chart(canvas, { type, data, options });
+  $: {
+    const currentSerializedSignature = JSON.stringify({ type, data, options });
+    if (chart && currentSerializedSignature !== previousSerializedSignature) {
+      chart.destroy();
+      chart = new Chart(canvas, { type, data, options });
+    }
+    previousSerializedSignature = currentSerializedSignature;
   }
 </script>
 

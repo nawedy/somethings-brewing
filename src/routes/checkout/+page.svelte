@@ -329,19 +329,20 @@
 						</div>
 					</div>
 
-					{#if isGift}
-						<div class="mt-4">
-							<label class="label">
-								<span class="label-text">Gift Message (Optional)</span>
-							</label>
-							<textarea
-								class="textarea textarea-bordered w-full"
-								placeholder="Enter your gift message..."
-								bind:value={giftMessage}
-								rows="3"
-							></textarea>
-						</div>
-					{/if}
+                    {#if isGift}
+                        <div class="mt-4">
+                            <label class="label" for="gift-message">
+                                <span class="label-text">Gift Message (Optional)</span>
+                            </label>
+                            <textarea
+                                id="gift-message"
+                                class="textarea textarea-bordered w-full"
+                                placeholder="Enter your gift message..."
+                                bind:value={giftMessage}
+                                rows="3"
+                            ></textarea>
+                        </div>
+                    {/if}
 				</div>
 			</div>
 
@@ -659,11 +660,11 @@
 					<!-- Payment Information -->
 					<div class="card bg-base-100 p-6">
 						<h2 class="mb-4 text-xl font-bold">Payment Information</h2>
-						<div>
-							<label class="label">
-								<span class="label-text">Card Details *</span>
-							</label>
-							<div id="card-element" class="border-base-300 bg-base-50 rounded-lg border p-3"></div>
+                        <div>
+                            <label class="label" for="card-element">
+                                <span class="label-text">Card Details *</span>
+                            </label>
+                            <div id="card-element" class="border-base-300 bg-base-50 rounded-lg border p-3"></div>
 							{#if errorMessage}
 								<div class="label">
 									<span class="label-text-alt text-error">{errorMessage}</span>
