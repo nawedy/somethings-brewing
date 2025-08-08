@@ -50,7 +50,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor_svelte: ['svelte', '@sveltejs/kit'],
-          vendor_chart: ['chart.js'],
+          // Chart.js is externalized during SSR; avoid forcing a manual chunk for it
           vendor_stripe: ['@stripe/stripe-js']
         }
       }

@@ -311,16 +311,14 @@
 </div>
 
 <style>
-	@media print {
-		.btn,
-		.card,
-		nav,
-		footer {
-			display: none !important;
-		}
+    @media print {
+        .btn,
+        .card {
+            display: none !important;
+        }
 
 		.text-center {
 			text-align: left !important;
-		}
+        }
 	}
 </style>

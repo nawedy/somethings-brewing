@@ -22,11 +22,11 @@
 
 <form on:submit|preventDefault={handleSave} class="space-y-4">
 	<input class="input input-bordered w-full" placeholder="Name" bind:value={product.name} />
-	<textarea
-		class="textarea textarea-bordered w-full"
-		placeholder="Description"
-		bind:value={product.description}
-	/>
+    <textarea
+        class="textarea textarea-bordered w-full"
+        placeholder="Description"
+        bind:value={product.description}
+    ></textarea>
 	<input
 		class="input input-bordered w-full"
 		type="number"
