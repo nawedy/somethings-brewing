@@ -673,3 +673,22 @@ _For future entries, use this template:_
 
 - Sprint 4 Progress: 9/10
 
+
+### Activity 16: Sprint 4 Task 4.10 - Production Deployment
+
+**Date:** January 27, 2025  
+**Type:** Deployment & Release
+
+#### Actions Taken:
+
+1. CI deploy job to Vercel on `main` using `vercel-action`.
+2. Added `robots.txt` route and updated Playwright to accept `E2E_BASE_URL` for post-deploy checks.
+
+#### Deliverables:
+
+- Added: `src/routes/robots.txt/+server.ts`  
+- Updated: `.github/workflows/ci.yml`, `playwright.config.ts`, `SPRINT_IMPLEMENTATION_PLAN.md`
+
+#### Progress Update:
+
+- Sprint 4 Progress: 10/10

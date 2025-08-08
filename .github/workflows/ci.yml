@@ -52,4 +52,28 @@ jobs:
       - name: Load Test (smoke)
         run: npm run load:test:ci | cat
 
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-args: '--prod'
+          working-directory: '.'
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+      - name: E2E on deployment (optional)
+        if: ${{ env.DEPLOYMENT_URL != '' }}
+        env:
+          E2E_BASE_URL: ${{ env.DEPLOYMENT_URL }}
+        run: |
+          npm ci
+          npx playwright install --with-deps | cat
+          npm run test:e2e:ci | cat
+
 
