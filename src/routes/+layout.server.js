@@ -6,7 +6,7 @@ export async function load() {
   return {};
 }
 
-export const prerender = true;
+export const prerender = false;
 
 // Note: Response cache headers are applied via the global handle in hooks.server.js
 

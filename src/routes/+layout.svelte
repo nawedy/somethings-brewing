@@ -49,7 +49,7 @@
 		content="Take our Brew Quiz and shop premium coffee. Delivered fresh."
 	/>
 	<meta name="twitter:image" content="/og-cover.jpg" />
-  <link rel="preload" href="/images/Logos/logo.svg" as="image" />
+  <!-- Remove preload to avoid 404 during SSR/prerender if asset missing -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="canonical" href="https://www.somethingsbrewing.com" />
   <script type="application/ld+json">

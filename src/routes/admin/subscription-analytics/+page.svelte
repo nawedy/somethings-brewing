@@ -86,7 +86,7 @@
 		<div class="bg-base-100 rounded p-6 shadow">
 			<h2 class="mb-2 text-lg font-semibold">Delivery Frequency Breakdown</h2>
 			{#if Object.keys(frequencyMap).length > 0}
-				<ChartJS type="pie" data={frequencyChart} />
+    <Chart type="pie" data={frequencyChart} />
 			{:else}
 				<p class="text-sm text-gray-500">No frequency data available.</p>
 			{/if}
@@ -94,7 +94,7 @@
 
 		<div class="bg-base-100 rounded p-6 shadow">
 			<h2 class="mb-2 text-lg font-semibold">Status Distribution</h2>
-			<ChartJS type="doughnut" data={statusChart} />
+      <Chart type="doughnut" data={statusChart} />
 		</div>
 	</div>
 </section>
