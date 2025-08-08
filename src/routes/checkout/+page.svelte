@@ -713,9 +713,5 @@
 		align-items: center;
 	}
 
-	/* Focus styles */
-	#card-element.StripeElement--focus {
-		border-color: #0ea5e9;
-		box-shadow: 0 0 0 1px #0ea5e9;
-	}
+    /* Stripe applies internal focus styles; custom focus removed to avoid unused selector warning */
 </style>

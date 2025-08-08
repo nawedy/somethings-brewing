@@ -45,16 +45,7 @@ export default defineConfig({
 
   build: {
     sourcemap: false,
-    minify: 'esbuild',
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor_svelte: ['svelte', '@sveltejs/kit'],
-          // Chart.js is externalized during SSR; avoid forcing a manual chunk for it
-          vendor_stripe: ['@stripe/stripe-js']
-        }
-      }
-    }
+    minify: 'esbuild'
   },
 
 	test: {

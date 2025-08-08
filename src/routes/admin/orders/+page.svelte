@@ -242,7 +242,7 @@
 						<!-- Quick Actions -->
 						<div class="absolute top-4 right-4">
 							<div class="dropdown dropdown-end">
-                                <button type="button" class="btn btn-circle btn-ghost btn-sm" aria-haspopup="menu" aria-expanded="false">
+                                <button type="button" class="btn btn-circle btn-ghost btn-sm" aria-haspopup="menu" aria-expanded="false" aria-label="Order actions">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										class="h-4 w-4"
