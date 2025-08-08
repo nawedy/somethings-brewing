@@ -3,13 +3,6 @@
   "buildCommand": "npm run build",
   "installCommand": "npm ci",
   "framework": "sveltekit",
-  "env": {
-    "PUBLIC_SUPABASE_URL": "@public_supabase_url",
-    "PUBLIC_SUPABASE_ANON_KEY": "@public_supabase_anon_key",
-    "STRIPE_SECRET_KEY": "@stripe_secret_key",
-    "STRIPE_WEBHOOK_SECRET": "@stripe_webhook_secret",
-    "SENDGRID_API_KEY": "@sendgrid_api_key"
-  },
   "github": {
     "enabled": true,
     "autoJobCancelation": true
