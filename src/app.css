@@ -1,7 +1,9 @@
 /* File: src/app/app.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* Tell Tailwind v4 where to scan for class usage */
+@source "./**/*.{svelte,js,ts,jsx,tsx,html}";
 
 /* Optional custom styles */
 html,
@@ -13,4 +15,13 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #1E1B18; /* updated base background */
     color: #F5E9DD;
+}
+
+/* CSS variables (instead of Tailwind @theme) for editor compatibility */
+:root {
+  --color-background: #1E1B18;
+  --color-background-muted: #231F1C;
+  --color-background-contrast: #161311;
+  --color-primary: #C49A6C;
+  --color-foreground: #F5E9DD;
 }
