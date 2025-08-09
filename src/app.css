@@ -6,11 +6,11 @@
 /* Optional custom styles */
 html,
 body {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	min-height: 100%;
-	font-family: 'Inter', sans-serif;
-	background-color: #2b100e; /* match your intended background */
-	color: #f5e9dd;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    font-family: 'Inter', sans-serif;
+    background-color: #1E1B18; /* updated base background */
+    color: #F5E9DD;
 }

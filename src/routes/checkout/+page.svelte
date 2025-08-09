@@ -289,6 +289,7 @@
 	<meta name="description" content="Complete your coffee order securely" />
 </svelte:head>
 
+<main>
 <div class="mx-auto max-w-6xl p-6">
 	{#if loading}
 		<div class="flex min-h-96 items-center justify-center">
@@ -704,6 +705,7 @@
 		</div>
 	{/if}
 </div>
+</main>
 
 <style>
 	/* Custom styles for Stripe Elements */

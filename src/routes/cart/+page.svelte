@@ -52,6 +52,7 @@
 	<meta name="description" content="Review your coffee selection and proceed to checkout" />
 </svelte:head>
 
+<main>
 <section class="mx-auto max-w-4xl space-y-6 p-6">
 	<div class="flex items-center justify-between">
 		<h1 class="text-3xl font-bold">Your Cart</h1>
@@ -244,3 +245,4 @@
 		</div>
 	{/if}
 </section>
+</main>

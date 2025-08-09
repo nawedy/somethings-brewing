@@ -46,24 +46,30 @@
 					: 'French Press';
 		result = style;
 	}
+  import Section from '$components/layout/Section.svelte';
 </script>
 
-<section class="mx-auto max-w-xl space-y-6 p-8">
-	<h1 class="text-2xl font-bold">Brew Guide Quiz</h1>
+<main>
+  <Section variant="default">
+    <div class="mx-auto max-w-xl space-y-6">
+      <h1 class="text-2xl font-bold">Brew Guide Quiz</h1>
 
-	{#if result}
-		<div class="text-center">
-			<p class="text-lg">You should try:</p>
-			<h2 class="mt-2 text-3xl font-bold">{result}</h2>
-		</div>
-	{:else}
-		<div class="space-y-4">
-			<p class="text-lg font-semibold">{questions[step].q}</p>
-			<div class="space-y-2">
-				{#each questions[step].options as opt}
-					<button class="btn btn-outline w-full" on:click={() => answer(opt)}>{opt}</button>
-				{/each}
-			</div>
-		</div>
-	{/if}
-</section>
+      {#if result}
+        <div class="text-center">
+          <p class="text-lg">You should try:</p>
+          <h2 class="mt-2 text-3xl font-bold">{result}</h2>
+        </div>
+      {:else}
+        <div class="space-y-4">
+          <p class="text-lg font-semibold">{questions[step].q}</p>
+          <div class="space-y-2">
+            {#each questions[step].options as opt}
+              <button class="btn btn-outline w-full" on:click={() => answer(opt)}>{opt}</button>
+            {/each}
+          </div>
+        </div>
+      {/if}
+    </div>
+  </Section>
+  <Section variant="muted" />
+</main>

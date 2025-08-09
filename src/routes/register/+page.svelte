@@ -118,6 +118,7 @@
 	<meta name="description" content="Create your coffee lover's account" />
 </svelte:head>
 
+<main>
 <section class="mx-auto max-w-md space-y-6 p-8">
 	<div class="text-center">
 		<h1 class="text-3xl font-bold">Create an Account</h1>
@@ -292,3 +293,4 @@
 		</p>
 	</div>
 </section>
+</main>

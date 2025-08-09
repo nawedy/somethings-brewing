@@ -7,6 +7,7 @@
 			slug: 'african-origins'
 		}
 	];
+  import Section from '$components/layout/Section.svelte';
 </script>
 
 <!-- File: src/routes/collections/+page.svelte -->
@@ -26,17 +27,19 @@
 	<meta property="og:url" content="https://www.somethingsbrewing.com/collections" />
 </svelte:head>
 
-<section class="space-y-6 p-8">
-	<h1 class="text-2xl font-bold">Coffee Collections</h1>
-
-	<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-		{#each collections as c}
-			<a href={`/collections/${c.slug}`} class="card bg-base-100 shadow">
-				<img src={c.image_url} alt={c.name} class="h-48 w-full object-cover" />
-				<div class="p-4">
-					<h2 class="text-lg font-semibold">{c.name}</h2>
-				</div>
-			</a>
-		{/each}
-	</div>
-</section>
+<main>
+  <Section variant="default">
+    <h1 class="text-2xl font-bold">Coffee Collections</h1>
+    <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+      {#each collections as c}
+        <a href={`/collections/${c.slug}`} class="card bg-base-100 shadow">
+          <img src={c.image_url} alt={c.name} class="h-48 w-full object-cover" />
+          <div class="p-4">
+            <h2 class="text-lg font-semibold">{c.name}</h2>
+          </div>
+        </a>
+      {/each}
+    </div>
+  </Section>
+  <Section variant="muted" />
+</main>

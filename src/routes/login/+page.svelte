@@ -182,6 +182,7 @@
 	<meta name="description" content="Sign in to your coffee lover's account" />
 </svelte:head>
 
+<main>
 <section class="mx-auto max-w-md space-y-6 p-8">
 	<div class="text-center">
 		<h1 class="text-3xl font-bold">Welcome Back</h1>
@@ -352,3 +353,4 @@
 	</div>
 	<p class="text-center text-xs opacity-50">Social login coming soon</p>
 </section>
+</main>

@@ -8,6 +8,7 @@
 	import Testimonials from '$components/Testimonials.svelte';
 	import FAQ from '$components/FAQ.svelte';
 	import ContactForm from '$components/ContactForm.svelte';
+  import Section from '$components/layout/Section.svelte';
 </script>
 
 <svelte:head>
@@ -19,12 +20,24 @@
 	<link rel="canonical" href="https://somethingsbrewing.com/" />
 </svelte:head>
 
-<main>
-	<Hero />
-	<BrewGuideQuiz />
-	<ProductShowcase />
-	<FeaturedProducts />
-	<Testimonials />
-	<FAQ />
-	<ContactForm />
+<main class="space-y-0">
+  <Hero />
+  <Section id="quiz" variant="muted">
+    <BrewGuideQuiz />
+  </Section>
+  <Section id="showcase" variant="default">
+    <ProductShowcase />
+  </Section>
+  <Section id="featured" variant="contrast">
+    <FeaturedProducts />
+  </Section>
+  <Section id="testimonials" variant="default">
+    <Testimonials />
+  </Section>
+  <Section id="faq" variant="muted">
+    <FAQ />
+  </Section>
+  <Section id="contact" variant="default">
+    <ContactForm />
+  </Section>
 </main>

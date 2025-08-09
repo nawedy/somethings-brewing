@@ -19,6 +19,7 @@
 			{ slug: 'kenya-aa', name: 'Kenya AA', image: '/images/bag3.png', price: '$17.50' }
 		]
 	};
+  import Section from '$components/layout/Section.svelte';
 </script>
 
 <svelte:head>
@@ -35,12 +36,15 @@
 	<link rel="canonical" href={`https://www.somethingsbrewing.com/collections/${slug}`} />
 </svelte:head>
 
-<section class="p-10">
-	<h1 class="mb-4 font-serif text-4xl">{collection.title}</h1>
-	<p class="text-base-content mb-10">{collection.description}</p>
-	<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-		{#each collection.products as product}
-			<ProductCard {product} />
-		{/each}
-	</div>
-</section>
+<main>
+  <Section variant="default">
+    <h1 class="mb-4 font-serif text-4xl">{collection.title}</h1>
+    <p class="text-base-content mb-10">{collection.description}</p>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {#each collection.products as product}
+        <ProductCard {product} />
+      {/each}
+    </div>
+  </Section>
+  <Section variant="muted" />
+</main>
