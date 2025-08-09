@@ -2,10 +2,10 @@
 // Purpose: Basic auth flow tests (unit-level) for store functions
 
 import { describe, it, expect, vi } from 'vitest';
-import * as supabaseModule from '@/lib/supabase.js';
-import { auth } from '@/lib/stores/auth.js';
+import * as supabaseModule from '../lib/supabase.js';
+import { auth } from '../lib/stores/auth.js';
 
-vi.mock('@/lib/supabase.js', () => {
+vi.mock('../lib/supabase.js', () => {
   return {
     supabase: {
       auth: {
@@ -22,10 +22,11 @@ vi.mock('@/lib/supabase.js', () => {
 describe('auth store', () => {
   it('initializes without session', async () => {
     await auth.init();
+    /** @type {{ user: any, loading: boolean } | undefined} */
     let current;
     auth.subscribe((s) => (current = s))();
-    expect(current.user).toBeNull();
-    expect(current.loading).toBe(false);
+    expect(current && current.user).toBeNull();
+    expect(current && current.loading).toBe(false);
   });
 
   it('resetPassword returns without error', async () => {

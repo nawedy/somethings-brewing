@@ -34,10 +34,10 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			$components: path.resolve(dirname, 'src/app/components'),
-			$lib: path.resolve(dirname, 'src/lib'),
+      $lib: path.resolve(dirname, 'src/lib'),
 			$routes: path.resolve(dirname, 'src/routes'),
 			$layouts: path.resolve(dirname, 'src/layouts'),
-			$assets: path.resolve(dirname, 'src/assets'),
+      $assets: path.resolve(dirname, 'src/app/assets'),
 			$images: path.resolve(dirname, 'static/images'),
 			$videos: path.resolve(dirname, 'static/videos')
 		}

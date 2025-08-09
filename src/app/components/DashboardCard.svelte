@@ -3,6 +3,7 @@
 
 <script>
 	export let label = '';
+	/** @type {string | number} */
 	export let value = '';
 	export let icon = null;
 </script>

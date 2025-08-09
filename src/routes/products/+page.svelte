@@ -19,11 +19,13 @@
   });
 </script>
 
-<section class="p-10">
-	<h1 class="mb-8 text-center font-serif text-4xl">All Products</h1>
-	<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    {#each products as product}
-      <ProductCard {product} />
-		{/each}
-	</div>
-</section>
+<main>
+  <section class="p-10">
+      <h1 class="mb-8 text-center font-serif text-4xl">All Products</h1>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {#each products as product}
+        <ProductCard {product} />
+          {/each}
+      </div>
+  </section>
+</main>

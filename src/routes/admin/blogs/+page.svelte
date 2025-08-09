@@ -44,7 +44,7 @@
 	<h1 class="text-3xl font-bold">Manage Blog Posts</h1>
 
 	{#if editing}
-		<BlogEditor bind:post={selected} onSave={handleSave} />
+    <BlogEditor bind:post={selected} on:save={(e) => handleSave(e.detail)} />
 	{:else}
 		<button
 			class="btn btn-primary mb-4"

@@ -3,14 +3,24 @@
 
 import { render, screen, fireEvent } from '@testing-library/svelte';
 import { describe, it, expect, vi } from 'vitest';
-import RegisterPage from '@/routes/register/+page.svelte';
+import RegisterPage from '../../routes/register/+page.svelte';
+
+// Ensure a DOM is available when running under node environment segment
+if (typeof document === 'undefined') {
+  // This test should run under jsdom (client workspace). Skip if not.
+  // eslint-disable-next-line no-console
+  console.warn('Skipping Register Page test: requires jsdom environment');
+  describe.skip('Register Page', () => {});
+} else {
 
 // Mock fetch for API call
 global.fetch = vi.fn().mockResolvedValue({ json: async () => ({ success: false, error: 'Mock error' }) });
 
 describe('Register Page', () => {
   it('renders form and validates inputs', async () => {
-    render(RegisterPage);
+    const target = document.createElement('div');
+    document.body.appendChild(target);
+    render(RegisterPage, { container: target });
     const form = screen.getByRole('form', { name: /registration-form/i });
     expect(form).toBeInTheDocument();
 
@@ -27,5 +37,6 @@ describe('Register Page', () => {
     expect(screen.getAllByText(/required|valid|least/i).length).toBeGreaterThan(0);
   });
 });
+}
 
 

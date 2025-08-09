@@ -1,12 +1,12 @@
 {
-	"name": "coffee-shop-by-section",
+	"name": "somethings-brewing",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
 	    "build": "svelte-kit sync && vite build",
-    "preview": "vite preview",
+    	"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
-    "prepack": "svelte-kit sync && svelte-package && publint",
+    	"prepack": "svelte-kit sync && svelte-package && publint",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
 		"format": "prettier --write .",
@@ -14,14 +14,14 @@
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run",
 		"storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "test:ci": "vitest run --coverage",
-    "type-check": "svelte-check --tsconfig ./jsconfig.json",
-    "start:preview": "vite preview --port 4173 --strictPort",
-    "test:e2e": "npm run build && playwright test",
-    "test:e2e:ci": "npm run build && playwright test",
-    "load:test": "start-server-and-test start:preview http://localhost:4173 autocannon -d 10 -c 20 http://localhost:4173/",
-    "load:test:ci": "start-server-and-test start:preview http://localhost:4173 autocannon -d 10 -c 20 http://localhost:4173/"
+		"build-storybook": "storybook build",
+		"test:ci": "vitest run --coverage",
+		"type-check": "svelte-check --tsconfig ./jsconfig.json",
+		"start:preview": "vite preview --port 4173 --strictPort",
+		"test:e2e": "npm run build && playwright test",
+		"test:e2e:ci": "npm run build && playwright test",
+		"load:test": "start-server-and-test start:preview http://localhost:4173 autocannon -d 10 -c 20 http://localhost:4173/",
+		"load:test:ci": "start-server-and-test start:preview http://localhost:4173 autocannon -d 10 -c 20 http://localhost:4173/"
 	},
 	"files": [
 		"dist",
@@ -44,9 +44,9 @@
 		"svelte": "^5.0.0"
 	},
 	"devDependencies": {
-    "@playwright/test": "1.54.2",
-    "autocannon": "7.15.0",
-    "start-server-and-test": "2.0.13",
+    	"@playwright/test": "1.54.2",
+    	"autocannon": "7.15.0",
+    	"start-server-and-test": "2.0.13",
 		"@chromatic-com/storybook": "^3",
 		"@eslint/compat": "^1.2.5",
 		"@eslint/js": "^9.18.0",
@@ -79,7 +79,7 @@
 		"globals": "^16.0.0",
 		"jsdom": "^26.0.0",
 		"mdsvex": "^0.12.3",
-    "playwright": "1.54.2",
+    	"playwright": "1.54.2",
 		"postcss": "^8.5.3",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.3",
@@ -101,9 +101,9 @@
 		"@stripe/stripe-js": "^7.8.0",
 		"@supabase/supabase-js": "^2.49.4",
 		"chart.js": "^4.4.9",
-    "stripe": "^18.4.0",
-    "svelte": "^5.0.0",
-    "vite": "^6.3.4",
-    "web-vitals": "4.2.4"
+    	"stripe": "^18.4.0",
+    	"svelte": "^5.0.0",
+    	"vite": "^6.3.4",
+    	"web-vitals": "4.2.4"
 	}
 }

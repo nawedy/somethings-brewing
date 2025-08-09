@@ -5,8 +5,11 @@
 	import { onMount } from 'svelte';
 	import Chart from 'chart.js/auto';
 
+	/** @type {import('chart.js').ChartType} */
 	export let type = 'bar';
-	export let data = {};
+	/** @type {import('chart.js').ChartData} */
+	export let data = { labels: [], datasets: [] };
+	/** @type {import('chart.js').ChartOptions} */
 	export let options = {};
 
 	let chart;
@@ -14,9 +17,9 @@
 
   let previousSerializedSignature = '';
 
-	onMount(() => {
+		onMount(() => {
 		if (canvas) {
-			chart = new Chart(canvas, {
+				chart = new Chart(canvas, {
 				type,
 				data,
 				options
@@ -28,11 +31,11 @@
 		};
 	});
 
-  $: {
+	  $: {
     const currentSerializedSignature = JSON.stringify({ type, data, options });
     if (chart && currentSerializedSignature !== previousSerializedSignature) {
       chart.destroy();
-      chart = new Chart(canvas, { type, data, options });
+				chart = new Chart(canvas, { type, data, options });
     }
     previousSerializedSignature = currentSerializedSignature;
   }

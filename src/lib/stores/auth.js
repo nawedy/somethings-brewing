@@ -5,6 +5,10 @@ import { writable } from 'svelte/store';
 import { supabase } from '$lib/supabase.js';
 import { browser } from '$app/environment';
 
+/**
+ * @typedef {import('@supabase/supabase-js').User & { role?: string; is_affiliate?: boolean; full_name?: string }} ExtendedUser
+ */
+
 const createAuthStore = () => {
 	const { subscribe, set, update } = writable({
 		user: null,
@@ -46,7 +50,8 @@ const createAuthStore = () => {
 					data: { session }
 				} = await supabase.auth.getSession();
 
-        let enrichedUser = session?.user ?? null;
+				/** @type {ExtendedUser | null} */
+				let enrichedUser = session?.user ?? null;
         if (enrichedUser) {
           const { data: customer } = await supabase
             .from('customers')
@@ -54,7 +59,12 @@ const createAuthStore = () => {
             .eq('id', enrichedUser.id)
             .single();
           if (customer) {
-            enrichedUser = { ...enrichedUser, role: customer.role, is_affiliate: customer.is_affiliate, full_name: customer.full_name };
+						enrichedUser = /** @type {ExtendedUser} */ ({
+							...enrichedUser,
+							role: customer.role,
+							is_affiliate: customer.is_affiliate,
+							full_name: customer.full_name
+						});
           }
         }
 
@@ -65,8 +75,9 @@ const createAuthStore = () => {
         });
 
 				// Listen for auth changes
-        supabase.auth.onAuthStateChange(async (event, session) => {
-          let nextUser = session?.user ?? null;
+			supabase.auth.onAuthStateChange(async (event, session) => {
+				/** @type {ExtendedUser | null} */
+				let nextUser = session?.user ?? null;
           if (nextUser) {
             const { data: customer } = await supabase
               .from('customers')
@@ -74,7 +85,12 @@ const createAuthStore = () => {
               .eq('id', nextUser.id)
               .single();
             if (customer) {
-              nextUser = { ...nextUser, role: customer.role, is_affiliate: customer.is_affiliate, full_name: customer.full_name };
+						nextUser = /** @type {ExtendedUser} */ ({
+							...nextUser,
+							role: customer.role,
+							is_affiliate: customer.is_affiliate,
+							full_name: customer.full_name
+						});
             }
           }
           set({
@@ -87,6 +103,9 @@ const createAuthStore = () => {
         // Start inactivity timer
         attachActivityListeners();
         resetInactivityTimer();
+			} else {
+				// Server environment: ensure loading is false with no session
+				set({ user: null, session: null, loading: false });
 			}
 		},
 		// Sign in with email and password
@@ -114,14 +133,18 @@ const createAuthStore = () => {
 			return { error };
 		},
 		// Reset password
-    resetPassword: async (email) => {
-      const url = new URL(window.location.href);
-      const redirectTo = `${url.origin}/auth/reset-password`;
-      const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo
-      });
-      return { data, error };
-    },
+		resetPassword: async (email) => {
+			let origin = 'http://localhost';
+			if (browser) {
+				const url = new URL(window.location.href);
+				origin = url.origin;
+			}
+			const redirectTo = `${origin}/auth/reset-password`;
+			const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+				redirectTo
+			});
+			return { data, error };
+		},
     // Global logout across all devices
     signOutAllDevices: async () => {
       const { error } = await supabase.auth.signOut({ scope: 'global' });

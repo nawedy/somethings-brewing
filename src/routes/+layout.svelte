@@ -50,7 +50,7 @@
 	/>
 	<meta name="twitter:image" content="/og-cover.jpg" />
   <!-- Remove preload to avoid 404 during SSR/prerender if asset missing -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
   <link rel="canonical" href="https://www.somethingsbrewing.com" />
   <script type="application/ld+json">
     {

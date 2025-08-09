@@ -13,8 +13,7 @@ if (!stripeSecretKey) {
 
 // Initialize Stripe with secret key
 export const stripe = new Stripe(stripeSecretKey || 'sk_test_placeholder', {
-	apiVersion: '2023-10-16', // Use latest stable API version
-	typescript: true
+	apiVersion: '2025-07-30.basil'
 });
 
 // Create payment intent

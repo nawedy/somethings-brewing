@@ -51,7 +51,6 @@ export async function POST({ request }) {
 				break;
 
       case 'payment_intent.canceled':
-      case 'payment_intent.requires_payment_method':
         await handleFailedPayment(event.data.object);
         break;
 

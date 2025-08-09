@@ -15,9 +15,9 @@
 
 	const dispatch = createEventDispatcher();
 
-	function handleSave() {
-		dispatch('save', { ...post });
-	}
+  function handleSave() {
+    dispatch('save', { ...post });
+  }
 </script>
 
 <form on:submit|preventDefault={handleSave} class="space-y-4">
